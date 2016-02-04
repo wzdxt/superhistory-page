@@ -19,11 +19,11 @@ ActiveRecord::Schema.define(version: 20160204062819) do
   end
 
   create_table "pages", force: :cascade do |t|
-    t.string   "url"
-    t.integer  "status"
-    t.integer  "content_version"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.string   "url",             limit: 1000
+    t.integer  "status",          limit: 4
+    t.integer  "content_version", limit: 4
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
 end
