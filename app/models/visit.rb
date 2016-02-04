@@ -6,4 +6,8 @@ class Visit < ActiveRecord::Base
     target_url = self.url.split('#').first
     self.update_attribute :page_id, Page.link(target_url)
   end
+
+  def self.link_all_to_page
+    Visit.no_page.each { |v| v.link_to_page }
+  end
 end

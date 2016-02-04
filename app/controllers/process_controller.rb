@@ -6,7 +6,7 @@ class ProcessController < ApplicationController
       Lock.delete_all
     end
     Lock.loop do
-      Visit.no_page.each { |v| v.link_to_page }
+      Visit.link_all_to_page
     end
     if params.keys.include? 'pretty'
       render :text => "<pre>#{JSON.pretty_generate(Page.all.last(10).as_json)}</pre>"
