@@ -33,6 +33,8 @@ gem 'rails', '4.2.1'
 # gem 'devise'
 # gem 'devise-encryptable'
 # gem 'haml-rails'
+gem 'httpclient'
+gem 'settingslogic'
 
 group :production do
   # Use postgresql as the database for Active Record
