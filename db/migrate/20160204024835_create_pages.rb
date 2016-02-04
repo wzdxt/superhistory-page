@@ -1,7 +1,7 @@
 class CreatePages < ActiveRecord::Migration
   def change
     create_table :pages do |t|
-      t.string :url
+      t.string :url, :limit => 1000
       t.integer :status
       t.integer :content_version
 
