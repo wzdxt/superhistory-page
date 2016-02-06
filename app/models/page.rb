@@ -19,7 +19,7 @@ class Page < ActiveRecord::Base
     rescue HTTPClient::ConnectTimeoutError, HTTPClient::ReceiveTimeoutError => e
 # ignored
     rescue => e
-      puts e.backtrace
+      puts e.class, e.backtrace
 # ignored
     end
   end

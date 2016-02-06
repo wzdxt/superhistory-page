@@ -8,6 +8,7 @@ class Visit < ActiveRecord::Base
   end
 
   def self.link_all_to_page
-    Visit.all.select{|v|v.page_id.nil? || !Page.exists?(v.page_id)}.each { |v| v.link_to_page }
+    # Visit.all.select{|v|v.page_id.nil? || !Page.exists?(v.page_id)}.each { |v| v.link_to_page }
+    Visit.no_page.each { |v| v.link_to_page }
   end
 end
