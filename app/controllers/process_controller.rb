@@ -8,10 +8,6 @@ class ProcessController < ApplicationController
     Lock.loop do
       Visit.link_all_to_page
     end
-    if params.keys.include? 'pretty'
-      render :text => "<pre>#{JSON.pretty_generate(Page.all.last(10).as_json)}</pre>"
-    else
-      render :text => ''
-    end
+    render :text => ''
   end
 end

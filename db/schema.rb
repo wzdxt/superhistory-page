@@ -20,10 +20,14 @@ ActiveRecord::Schema.define(version: 20160204062819) do
 
   create_table "pages", force: :cascade do |t|
     t.string   "url",             limit: 1000
-    t.integer  "status",          limit: 4
-    t.integer  "content_version", limit: 4
+    t.integer  "target_page_id"
+    t.integer  "status"
+    t.integer  "content_hash",    limit: 8
+    t.integer  "content_version"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
   end
+
+  add_index "pages", ["content_hash"], name: "index_pages_on_content_hash"
 
 end
