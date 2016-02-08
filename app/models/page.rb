@@ -39,6 +39,14 @@ class Page < ActiveRecord::Base
     end
   end
 
+  def remove_illegal
+    Page.all.each do |page|
+      page.delete unless Visit.find_by_page_id page.id
+    end
+  end
+
+  private
+
   def set_default
     self.status ||= STATUS::NOT_PROCESSED
   end
