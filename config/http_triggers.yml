@@ -11,5 +11,5 @@ test:
 production:
   <<: *default
   http_triggers:
-    self: http://x-history-page.vdtapp.com/
+    self: http://page.x-history.top/
 
