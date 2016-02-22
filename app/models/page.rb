@@ -30,13 +30,7 @@ class Page < ActiveRecord::Base
       page = self.create! :url => url
       page.check_redirect!
     end
-    begin
-      client = HTTPClient.new
-      client.receive_timeout = 0.0001
-      client.get Settings.http_triggers.self
-    ensure
-      return page.id
-    end
+    return page.id
   end
 
   def self.remove_illegal
