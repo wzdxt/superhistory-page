@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160223032805) do
+ActiveRecord::Schema.define(version: 20160223074549) do
 
   create_table "locks", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20160223032805) do
     t.string   "url",             limit: 1000
     t.integer  "target_page_id"
     t.integer  "status"
-    t.integer  "content_hash",    limit: 8
+    t.string   "content_hash",    limit: 255
     t.integer  "content_version"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
