@@ -9,6 +9,10 @@ class Visit < ActiveRecord::Base
 
   def self.link_all_to_page
     # Visit.all.select{|v|v.page_id.nil? || !Page.exists?(v.page_id)}.each { |v| v.link_to_page }
-    Visit.no_page.each { |v| v.link_to_page }
+    self.no_page.each { |v| v.link_to_page }
+  end
+
+  def self.reset_page_id
+    self.update_all :page_id => nil
   end
 end

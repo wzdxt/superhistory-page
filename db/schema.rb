@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160204062819) do
+ActiveRecord::Schema.define(version: 20160223032805) do
 
   create_table "locks", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20160204062819) do
     t.integer  "content_version"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
+    t.integer  "http_status"
   end
 
   add_index "pages", ["content_hash"], name: "index_pages_on_content_hash"
