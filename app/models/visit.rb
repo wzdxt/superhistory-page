@@ -1,5 +1,5 @@
 class Visit < ActiveRecord::Base
-  establish_connection "#{Rails.env}_main"
+  establish_connection :visit
   scope :no_page, ->{where :page_id => nil}
 
   def link_to_page
