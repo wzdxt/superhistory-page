@@ -9,9 +9,7 @@ class Page < ActiveRecord::Base
   def check_status
     begin
       client = HTTPClient.new
-      client.connect_timeout = 3
-      client.send_timeout = 3
-      client.receive_timeout = 3
+      client.connect_timeout = client.send_timeout = client.receive_timeout = Settings.http_wait_time
       res = client.head(self.url)
       self.update_attribute :http_status, res.status
       if res.status != 200
